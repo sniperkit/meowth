@@ -1,0 +1,24 @@
+package: github.com/weeq/meowth
+import:
+- package: github.com/gorilla/securecookie
+  version: v1.1.1
+- package: github.com/jinzhu/gorm
+  version: v1.9.1
+  subpackages:
+  - dialects/mysql
+  - dialects/postgres
+  - dialects/sqlite
+- package: github.com/joho/godotenv
+  version: v1.2.0
+- package: github.com/kataras/iris
+  version: v10.6.6
+  subpackages:
+  - middleware/i18n
+  - middleware/logger
+  - middleware/recover
+  - sessions
+  - sessions/sessiondb/badger
+  - sessions/sessiondb/boltdb
+  - sessions/sessiondb/redis
+  - sessions/sessiondb/redis/service
+- package: gopkg.in/mgo.v2

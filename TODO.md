@@ -1,0 +1,4 @@
+-   EVENT / LISTENER
+-   QUEUE (BEANSTALKD VS.)
+-   MIGRATIONS
+-   LIB klasörün deki dosyaları ayrı bir repo ya atılıp oradan çekilecek.
