@@ -2,3 +2,4 @@
 -   QUEUE (BEANSTALKD VS.)
 -   MIGRATIONS
 -   LIB klasörün deki dosyaları ayrı bir repo ya atılıp oradan çekilecek.
+-   i18n sorunu giderilecek

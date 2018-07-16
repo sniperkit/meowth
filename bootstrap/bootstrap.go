@@ -24,6 +24,7 @@ import (
 	"github.com/weeq/meowth/lib/database"
 	"github.com/jinzhu/gorm"
 	"gopkg.in/mgo.v2"
+	"fmt"
 )
 
 var (
@@ -111,12 +112,11 @@ func (boot *Bootstrapper) LoadLocales() {
 		ext := filepath.Ext(f.Name())
 		name := strings.Replace(f.Name(), string(ext), "", -1)
 		dir := path.Join(LocalePath, f.Name())
-		languages[name] = dir
+		languages[name] = fmt.Sprintf("./%s", dir)
 	}
 
 	globalLocale := i18n.New(i18n.Config{
 		Default:      boot.Config.App.Locale,
-		URLParameter: "lang",
 		Languages:    languages,
 	})
 
@@ -124,9 +124,9 @@ func (boot *Bootstrapper) LoadLocales() {
 }
 
 func (boot *Bootstrapper) SetupViews() {
-	viewsDir := filepath.Clean(boot.Config.View.Path)
-	layout := path.Join(viewsDir, boot.Config.View.Layout)
-	view := iris.HTML(viewsDir, boot.Config.View.Ext).Layout(layout)
+	viewsDir := boot.Config.View.Path
+	layout := boot.Config.View.Layout
+	view := iris.HTML(viewsDir, boot.Config.View.Ext).Layout(layout).Reload(true)
 	boot.RegisterView(view)
 }
 

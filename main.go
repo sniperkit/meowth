@@ -4,7 +4,6 @@ import (
 	"github.com/weeq/meowth/bootstrap"
 	"github.com/weeq/meowth/routes"
 	"github.com/weeq/meowth/app/controller"
-	"github.com/weeq/meowth/lib"
 )
 
 func App() *bootstrap.Bootstrapper {
@@ -27,8 +26,6 @@ func App() *bootstrap.Bootstrapper {
 }
 
 func main() {
-	println(lib.Getenv("MGO_USE", "True") != "True")
-
 	app := App()
 
 	app.Listen()

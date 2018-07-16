@@ -9,5 +9,5 @@ type User struct {
 	Username string `gorm:"type:varchar(30);unique_index" json:"username"'`
 	Email    string `gorm:"type:varchar(50);unique_index" json:"email"'`
 	Password string `gorm:"type:varchar(88);unique_index" json:"-"'`
-	*lib.Model
+	*lib.MGO_Model
 }
